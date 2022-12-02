@@ -1,7 +1,7 @@
 import React from 'react'
-import AppBar from './appbar';
-import Categories from './category';
-import NewsCard from './news-card';
+import AppBar from '../../components/appbar';
+import Categories from '../../components/category';
+import NewsCard from '../../components/news-card';
 
 const Home = () => {
   return (
