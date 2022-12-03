@@ -16,7 +16,7 @@ export default function ActionAreaCard({news, setModal}) {
           <CardMedia
             component="img"
             height="140"
-            image={news.CardMediaurlToImage}
+            image={news.urlToImage}
             alt="green iguana"
           />
           <CardContent>

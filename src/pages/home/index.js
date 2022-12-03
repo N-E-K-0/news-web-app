@@ -9,10 +9,11 @@ import Modal from '../../components/modal';
 const Home = () => {
   const [modal, setModal] = useState(false);
   const [newsDataList, setNewsDataList] = useState();
+  const [searchString, setSearchString] = useState();
 
   const getNewsData = async () =>{
-    // let url = `${BASE_URL}?q=${searchString}&apiKey=${process.env.API_KEY}`;
-    let url = `${BASE_URL}?q=bitcoin&apiKey=${process.env.REACT_APP_API_KEY}`;
+    console.log("searchString>>>>>", searchString);
+    let url = `${BASE_URL}?q=${searchString}&apiKey=${process.env.REACT_APP_API_KEY}`;
     let res = await getData(url);
 
     if(res){
@@ -23,11 +24,15 @@ const Home = () => {
 
   useEffect(()=>{
     getNewsData();
-  },[])
+  },[]);
+
+  useEffect(()=>{
+    getNewsData();
+  },[searchString]);
 
   return (
     <div>
-      <AppBar page='home'/>
+      <AppBar page='home' setSearchString={setSearchString}/>
       <Categories />
       {newsDataList ? 
         newsDataList.map((news,index)=> {
