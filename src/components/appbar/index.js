@@ -56,39 +56,15 @@ export default function SearchAppBar({page, setSearchString}) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
+        <Toolbar style={{display: 'flex', justifyContent: 'space-around'}}>
+          <Typography
+            variant="h5"
+            noWrap
+            component="div"
+            style={{color: 'white', textDecoration:'none'}}
           >
-            <MenuIcon />
-          </IconButton>
-          {page !== 'home' ? 
-            <Link to='/'>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-              >
-                NewsApp
-              </Typography>
-            </Link>
-          :
-            <Link to='read-later'>
-              <Typography
-                variant="h6"
-                noWrap
-                component="div"
-                sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
-              >
-                Read Later
-              </Typography>
-            </Link>
-          }
+            NewsApp
+          </Typography>
           <Search>
             <SearchIconWrapper>
               <SearchIcon />
@@ -99,6 +75,33 @@ export default function SearchAppBar({page, setSearchString}) {
               onChange={(event)=> setSearchString(event.target.value)}
             />
           </Search>
+          <div>
+            {page !== 'home' ? 
+              <Link to='/'>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="div"
+                  sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                  style={{color: 'white', textDecoration:'none'}}
+                >
+                  NewsApp
+                </Typography>
+              </Link>
+            :
+              <Link to='read-later'>
+                <Typography
+                  variant="h6"
+                  noWrap
+                  component="div"
+                  sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
+                  style={{color: 'white', textDecoration:'none'}}
+                >
+                  Read Later
+                </Typography>
+              </Link>
+            }
+          </div>
         </Toolbar>
       </AppBar>
     </Box>

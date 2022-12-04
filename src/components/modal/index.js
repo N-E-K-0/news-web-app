@@ -39,35 +39,33 @@ export default function BasicModal({modal, setModal, modalData}) {
         <Card 
           sx={{ maxWidth: 345 }}
         >
-            <CardActionArea>
-              <CardMedia
-                component="img"
-                height="140"
-                image={modalData.urlToImage}
-                alt="green iguana"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {modalData.title}
-                </Typography>
-                <Typography gutterBottom variant="h5" component="div">
-                  {modalData.description}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {dayjs(modalData.publishedAt).format('DD/MM/YYYY')}
-                </Typography>
-                {/* <Typography variant="body2" color="text.primary" onClick={()=> {
-                  setModal(true); setModalData(news)}}>
-                  Show Details
-                </Typography> */}
-                {/* <Typography variant="body2" color="text.primary" onClick={()=> handleReadLater(dayjs(news.publishedAt).toString())}>
-                  Read Later
-                </Typography> */}
-                {/* { flag === "read-later" ? <Typography variant="body2" color="text.primary" onClick={()=> handleReadLater(dayjs(news.publishedAt).toString(), flag)}>
-                  Remove
-                </Typography> : null} */}
-              </CardContent>
-            </CardActionArea>
+          <CardMedia
+            component="img"
+            height="140"
+            image={modalData.urlToImage}
+            alt="green iguana"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="div">
+              {modalData.title}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="div">
+              {modalData.description}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {dayjs(modalData.publishedAt).format('DD/MM/YYYY')}
+            </Typography>
+            {/* <Typography variant="body2" color="text.primary" onClick={()=> {
+              setModal(true); setModalData(news)}}>
+              Show Details
+            </Typography> */}
+            {/* <Typography variant="body2" color="text.primary" onClick={()=> handleReadLater(dayjs(news.publishedAt).toString())}>
+              Read Later
+            </Typography> */}
+            {/* { flag === "read-later" ? <Typography variant="body2" color="text.primary" onClick={()=> handleReadLater(dayjs(news.publishedAt).toString(), flag)}>
+              Remove
+            </Typography> : null} */}
+          </CardContent>
           </Card>
         </Box>
       </Modal>

@@ -15,10 +15,10 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={ <Home setReadLater={setReadLater} setModal={setModal} setModalData={setModalData}/> } />
-        <Route path="read-later" element={ <ReadLater readLater={readLater}/> } />
+        <Route path="/" element={ <Home setReadLater={setReadLater} readLater={readLater} setModal={setModal} setModalData={setModalData}/> } />
+        <Route path="read-later" element={ <ReadLater readLater={readLater} setModal={setModal} setModalData={setModalData}/> } />
       </Routes>
-      <Modal modal={modal} setModal={setModal} modalData={modalData} />
+      {modalData ? <Modal modal={modal} setModal={setModal} modalData={modalData} />: null}
     </div>
   );
 }
