@@ -3,12 +3,11 @@ import AppBar from '../../components/appbar';
 import Categories from '../../components/category';
 import NewsCard from '../../components/news-card';
 
-const ReadLater = () => {
+const ReadLater = (flag) => {
   return (
     <div>
       <AppBar page='read-later'/>
-      <Categories />
-      <NewsCard />
+      <NewsCard flag="read-later"/>
     </div>
   )
 }

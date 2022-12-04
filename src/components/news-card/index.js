@@ -4,13 +4,13 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import dayjs from 'dayjs';
 
-export default function ActionAreaCard({news, setModal}) {
+export default function ActionAreaCard({news, setModal, handleReadLater, flag}) {
   return (
     <>
       <Card 
         sx={{ maxWidth: 345 }}
-        onClick={()=> setModal(true)}
       >
         <CardActionArea>
           <CardMedia
@@ -24,8 +24,17 @@ export default function ActionAreaCard({news, setModal}) {
               {news.title}
             </Typography>
             <Typography variant="body2" color="text.secondary">
-              {news.publishedAt}
+              {dayjs(news.publishedAt).format('DD/MM/YYYY')}
             </Typography>
+            <Typography variant="body2" color="text.primary" onClick={()=> setModal(true)}>
+              Show Details
+            </Typography>
+            <Typography variant="body2" color="text.primary" onClick={()=> handleReadLater(dayjs(news.publishedAt).toString())}>
+              Read Later
+            </Typography>
+            { flag === "read-later" ? <Typography variant="body2" color="text.primary" onClick={()=> handleReadLater(dayjs(news.publishedAt).toString(), flag)}>
+              Remove
+            </Typography> : null}
           </CardContent>
         </CardActionArea>
       </Card>
