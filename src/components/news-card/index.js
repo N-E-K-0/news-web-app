@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import dayjs from 'dayjs';
 
-export default function ActionAreaCard({news, setModal, handleReadLater, flag}) {
+export default function ActionAreaCard({news, setModal, setModalData, handleReadLater, flag}) {
   return (
     <>
       <Card 
@@ -26,7 +26,8 @@ export default function ActionAreaCard({news, setModal, handleReadLater, flag}) 
             <Typography variant="body2" color="text.secondary">
               {dayjs(news.publishedAt).format('DD/MM/YYYY')}
             </Typography>
-            <Typography variant="body2" color="text.primary" onClick={()=> setModal(true)}>
+            <Typography variant="body2" color="text.primary" onClick={()=> {
+              setModal(true); setModalData(news)}}>
               Show Details
             </Typography>
             <Typography variant="body2" color="text.primary" onClick={()=> handleReadLater(dayjs(news.publishedAt).toString())}>
