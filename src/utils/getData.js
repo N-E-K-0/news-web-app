@@ -1,5 +1,5 @@
 import axios from "axios";
-import {AlertPop} from '../components/alert';
+import AlertPop from '../components/alert';
 
 export const getData = async(url) =>{
   let response = await axios.get(url);

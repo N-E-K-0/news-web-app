@@ -4,8 +4,6 @@ import Home from './pages/home';
 import ReadLater from './pages/read-later';
 import logo from './logo.svg';
 import './App.css';
-import Modal from './components/modal';
-
 
 function App() {
   const [modal, setModal] = useState(false);
@@ -18,7 +16,6 @@ function App() {
         <Route path="/" element={ <Home setReadLater={setReadLater} readLater={readLater} setModal={setModal} setModalData={setModalData}/> } />
         <Route path="read-later" element={ <ReadLater readLater={readLater} setModal={setModal} setModalData={setModalData}/> } />
       </Routes>
-      {modalData ? <Modal modal={modal} setModal={setModal} modalData={modalData} />: null}
     </div>
   );
 }
